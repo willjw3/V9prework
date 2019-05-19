@@ -2,6 +2,8 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
+import image from "../images/meteorite.jpg"
+
 const Header = ({ siteTitle }) => (
   <header
     style={{
@@ -9,7 +11,7 @@ const Header = ({ siteTitle }) => (
       marginBottom: `1.45rem`,
     }}
   >
-    <div
+    <div className="d-inline-block"
       style={{
         margin: `0 auto`,
         maxWidth: 960,
@@ -27,6 +29,9 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+    </div>
+    <div className="d-inline-block float-right pr-2">
+      <img className="rounded" src={image} alt=""/>
     </div>
   </header>
 )
