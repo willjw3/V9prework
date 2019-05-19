@@ -2,6 +2,11 @@
   font-family: "Orbitron";
 }
 
+.table-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
