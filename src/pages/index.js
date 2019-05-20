@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link, graphql } from "gatsby"
+import { graphql, navigate } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -16,13 +16,15 @@ const IndexPage = ({data}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(inputValue)
     let searchTerm = inputValue.toLowerCase()
     console.log(searchTerm)
-    const searched = strikes.map(strike => {
-      let realName = strike.node.name.toLowerCase();
-      //console.log(realName)
-    })
+    navigate(
+      "/searches/",
+      {
+        state: { searchTerm }
+      }
+    )
+
     setInputValue("")
   }
 
@@ -59,7 +61,6 @@ const IndexPage = ({data}) => {
               longitude={strike.node.longitude} />
           })}
         </div>
-      <Link to="/page-2/">Go to page 2</Link>
     </Layout>
   )
 }
