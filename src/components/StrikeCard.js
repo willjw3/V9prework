@@ -4,16 +4,16 @@ import React from "react"
 const StrikeCard = (props) => {
     
     return (
-        <div className="table-row">
-            <p className="d-inline-block text-center">{props.name}</p>
-            <p className="d-inline-block text-center">{props.id}</p>
-            <p className="d-inline-block text-center">{props.nametype}</p>
-            <p className="d-inline-block text-center">{props.recclass}</p>
-            <p className="d-inline-block text-center">{props.mass}</p>
-            <p className="d-inline-block text-center">{props.fall}</p>
-            <p className="d-inline-block text-center">{props.year}</p>
-            <p className="d-inline-block text-center">{props.latitude}</p>
-            <p className="d-inline-block text-center">{props.longitude}</p>
+        <div className="table-row border-bottom text-light">
+            <p className="d-inline-block text-center mt-4">{props.name}</p>
+            <p className="d-inline-block text-center mt-4">{props.id}</p>
+            <p className="d-inline-block text-center mt-4">{props.nametype}</p>
+            <p className="d-inline-block text-center mt-4">{props.recclass}</p>
+            <p className="d-inline-block text-center mt-4">{props.mass}</p>
+            <p className="d-inline-block text-center mt-4">{props.fall}</p>
+            <p className="d-inline-block text-center mt-2">{props.year}</p>
+            <p className="d-inline-block text-center mt-4">{props.latitude}</p>
+            <p className="d-inline-block text-center mt-4">{props.longitude}</p>
         </div>
     )
 }

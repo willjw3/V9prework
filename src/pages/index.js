@@ -1,7 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
 import StrikeCard from "../components/StrikeCard"
@@ -12,7 +11,19 @@ const IndexPage = ({data}) => {
   return (
     <Layout>
       <SEO title="Home" />
-        <div>
+        <div className="font-weight-bold border-bottom">
+          <StrikeCard 
+            name="Name" 
+            id="ID" 
+            nametype="Name Type"
+            recclass="Rec Class"
+            mass="Mass (g)"
+            fall="Fall"
+            year="Year"
+            latitude="Latitude"
+            longitude="Longitude"/>
+        </div>
+        <div className="font-italic">
           {strikes.map(strike => {
             return <StrikeCard
               key={strike.node.id}
@@ -27,9 +38,6 @@ const IndexPage = ({data}) => {
               longitude={strike.node.longitude} />
           })}
         </div>
-      <div style={{ maxWidth: `85px`, marginBottom: `1.45rem` }}>
-        <Image />
-      </div>
       <Link to="/page-2/">Go to page 2</Link>
     </Layout>
   )
