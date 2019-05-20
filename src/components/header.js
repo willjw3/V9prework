@@ -4,7 +4,9 @@ import React from "react"
 
 import image from "../images/meteorite.jpg"
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle }) => {
+
+return (
   <header
     style={{
       background: `black`,
@@ -36,6 +38,7 @@ const Header = ({ siteTitle }) => (
 
   </header>
 )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

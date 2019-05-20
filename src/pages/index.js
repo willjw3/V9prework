@@ -1,16 +1,37 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import StrikeCard from "../components/StrikeCard"
+import SearchBox from "../components/SearchBox"
 
 const IndexPage = ({data}) => {
+  const [inputValue, setInputValue] = useState("")
   const strikes = data.allStrike.edges
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(inputValue)
+    let searchTerm = inputValue.toLowerCase()
+    console.log(searchTerm)
+    const searched = strikes.map(strike => {
+      let realName = strike.node.name.toLowerCase();
+      //console.log(realName)
+    })
+    setInputValue("")
+  }
 
   return (
     <Layout>
       <SEO title="Home" />
+        <div className="ml-auto mr-auto w-100">
+          <SearchBox value={inputValue} onChange={handleChange} onSubmit={handleSubmit} />
+        </div>
         <div className="font-weight-bold border-bottom">
           <StrikeCard 
             name="Name" 
@@ -21,7 +42,7 @@ const IndexPage = ({data}) => {
             fall="Fall"
             year="Year"
             latitude="Latitude"
-            longitude="Longitude"/>
+            longitude="Longitude" />
         </div>
         <div className="font-italic">
           {strikes.map(strike => {
