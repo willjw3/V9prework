@@ -12,21 +12,21 @@ const IndexPage = ({data}) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <div>
-        {strikes.map(strike => {
-          return <StrikeCard
-            key={strike.node.id}
-            name={strike.node.name}
-            id={strike.node.id}
-            nametype={strike.node.nametype}
-            recclass={strike.node.recclass}
-            mass={strike.node.mass}
-            fall={strike.node.fall}
-            year={strike.node.year}
-            latitude={strike.node.latitude}
-            longitude={strike.node.longitude} />
-        })}
-      </div>
+        <div>
+          {strikes.map(strike => {
+            return <StrikeCard
+              key={strike.node.id}
+              name={strike.node.name}
+              id={strike.node.id}
+              nametype={strike.node.nametype}
+              recclass={strike.node.recclass}
+              mass={strike.node.mass}
+              fall={strike.node.fall}
+              year={strike.node.year}
+              latitude={strike.node.latitude}
+              longitude={strike.node.longitude} />
+          })}
+        </div>
       <div style={{ maxWidth: `85px`, marginBottom: `1.45rem` }}>
         <Image />
       </div>

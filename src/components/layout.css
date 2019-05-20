@@ -1,10 +1,22 @@
+
 .head-title {
   font-family: "Orbitron";
+  font-size: calc(.75em + 2vw);
+  vertical-align: middle;
+}
+
+.head-image {
+  max-width: 85px;
+  vertical-align: center;
 }
 
 .table-row {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+p {
+  font-family: "Raleway"
 }
 
 html {
