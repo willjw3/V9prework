@@ -9,7 +9,8 @@
 </h1>
 
 ## Chingu Voyage 9 Pre-work Solo Project
-Built with Gatsby
+Built with Gatsby <br>
+View the [live demo](https://struckbymeteorites.netlify.com/)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f1c25647-6b27-42ff-95e3-b681498510aa/deploy-status)](https://app.netlify.com/sites/struckbymeteorites/deploys)
 
