@@ -10,6 +10,9 @@ import MobileStrikeCard from "../components/MobileStrikeCard";
      let searchTerm = ""
      if (!props.location) {
          searchTerm = "No search term given"
+     } 
+     if (!props.location.state) {
+         console.log("Loading...")
      } else {
          searchTerm = props.location.state.searchTerm
      }
