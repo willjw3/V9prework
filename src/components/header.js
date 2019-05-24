@@ -4,21 +4,23 @@ import React from "react"
 
 import image from "../images/meteorite.jpg"
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle }) => {
+
+return (
   <header
     style={{
       background: `black`,
-      marginBottom: `1.45rem`,
+      marginBottom: `0`,
     }}
   >
-    <div className="d-inline-block"
+    <div className="d-inline-block head-block"
       style={{
         margin: `0 auto`,
         maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        padding: `0 1.0875rem`,
       }}
     >
-      <h1 className="head-title" style={{ margin: 0 }}>
+      <h1 className="head-title d-inline-block" style={{ margin: 0 }}>
         <Link
           to="/"
           style={{
@@ -30,11 +32,13 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h1>
     </div>
-    <div className="d-inline-block float-right pr-2">
-      <img className="rounded" src={image} alt=""/>
+    <div className="d-inline-block">
+      <img className="rounded head-image img-fluid" src={image} alt="meteorites bombarding Earth" />
     </div>
+
   </header>
 )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
