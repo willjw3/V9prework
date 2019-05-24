@@ -18,7 +18,6 @@ const IndexPage = ({data}) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     let searchTerm = inputValue.toLowerCase()
-    console.log(searchTerm)
     navigate(
       "/searches/",
       {
