@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { graphql, navigate } from "gatsby"
+import React from "react"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -8,31 +8,13 @@ import MobileStrikeCard from "../components/MobileStrikeCard"
 import SearchBox from "../components/SearchBox"
 
 const IndexPage = ({data}) => {
-  const [inputValue, setInputValue] = useState("")
   const strikes = data.allStrike.edges
-
-  const handleChange = (e) => {
-    setInputValue(e.target.value)
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    let searchTerm = inputValue.toLowerCase()
-    navigate(
-      "/searches/",
-      {
-        state: { searchTerm }
-      }
-    )
-
-    setInputValue("")
-  }
 
   return (
     <Layout>
       <SEO title="Home" />
         <div className="ml-auto mr-auto w-100">
-          <SearchBox value={inputValue} onChange={handleChange} onSubmit={handleSubmit} />
+          <SearchBox />
         </div>
         <div className="font-weight-bold border-bottom">
           <StrikeCard 
