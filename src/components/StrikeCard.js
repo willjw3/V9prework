@@ -4,7 +4,7 @@ import React from "react"
 const StrikeCard = (props) => {
     
     return (
-        <div className={`table-row border-bottom text-light`}>
+        <div className="table-row border-bottom text-light">
             <p className="d-inline-block text-center mt-3">{props.name}</p>
             <p className="d-inline-block text-center mt-3">{props.id}</p>
             <p className="d-inline-block text-center mt-3">{props.nametype}</p>
