@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -10,6 +10,11 @@ import SearchBox from "../components/SearchBox"
 const StrikeList = (props) => {
     console.log(props)
     const strikes = props.data.allStrike.edges
+    const { currentPage, numPages } = props.pageContext
+    const isFirst = currentPage === 1
+    const isLast = currentPage === numPages
+    const prevPage = currentPage - 1 === 1 ? "/" : (currentPage - 1).toString()
+    const nextPage = (currentPage + 1).toString()
 
     return (
         <Layout>
@@ -59,7 +64,23 @@ const StrikeList = (props) => {
                         longitude={strike.node.longitude} />
                 })}
             </div>
-
+            <div>
+            {!isFirst && (
+                <div className="float-left">
+                    <Link to={prevPage} rel="prev" style={{textDecoration: `none`}}>
+                        <span className="text-warning">← Data For Previous 10 Strikes</span>
+                    </Link>
+                </div>
+            )}
+            {!isLast && (
+                <div className="float-right">
+                        <Link to={nextPage} rel="next" style={{ textDecoration: `none` }}>
+                        <span className="text-warning">Data For Next 10 Strikes →</span>
+                    </Link>
+                </div>
+            )}
+            </div>
+            <hr className="mb-5"/>
         </Layout>
     )
 }
