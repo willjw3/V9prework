@@ -7,8 +7,9 @@ import StrikeCard from "../components/StrikeCard"
 import MobileStrikeCard from "../components/MobileStrikeCard"
 import SearchBox from "../components/SearchBox"
 
-const IndexPage = ({data}) => {
-  const strikes = data.allStrike.edges
+const IndexPage = (props) => {
+  console.log(props)
+  const strikes = props.data.allStrike.edges
 
   return (
     <Layout>
@@ -67,7 +68,7 @@ export default IndexPage
 
 export const query = graphql`
          query StrikesQuery {
-           allStrike {
+           allStrike(limit: 10) {
              edges {
                node {
                  id
@@ -78,7 +79,7 @@ export const query = graphql`
                  name
                  nametype
                  recclass
-                 year
+                 year(formatString: "YYYY")
                }
              }
            }

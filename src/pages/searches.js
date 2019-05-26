@@ -7,6 +7,7 @@ import MobileStrikeCard from "../components/MobileStrikeCard";
 
 
  const Searches = (props) => {
+     
      let searchTerm = ""
      if (!props.location) {
          searchTerm = "No search term given"
