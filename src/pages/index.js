@@ -13,14 +13,14 @@ const IndexPage = (props) => {
   let navi = true
   console.log(props.location)
   if (!props.location.state) {
-    strikes = props.data.allStrike.edges.slice(0, 10)
+    strikes = props.data.allStrike.edges.slice(0, 100)
   }
   if (props.location.state) {
     if (!props.location.state.searchTerm) {
-      strikes = props.data.allStrike.edges.slice(0, 10)
+      strikes = props.data.allStrike.edges.slice(0, 100)
     } else {
       if (props.location.state.searchTerm === "") {
-        strikes = props.data.allStrike.edges.slice(0, 10)
+        strikes = props.data.allStrike.edges.slice(0, 100)
       } else {
         searchTerm = props.location.state.searchTerm
         navi = false
@@ -94,7 +94,7 @@ const IndexPage = (props) => {
           { navi === true && (
             <div className="float-right">
               <Link to={nextPage} rel="next" style={{ textDecoration: `none` }}>
-                <span className="text-warning">Data For Next 10 Strikes →</span>
+                <span className="text-warning">Data For Next 100 Strikes →</span>
               </Link>
             </div>
           )

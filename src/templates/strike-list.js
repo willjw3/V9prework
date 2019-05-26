@@ -64,18 +64,19 @@ const StrikeList = (props) => {
                         longitude={strike.node.longitude} />
                 })}
             </div>
+            <p className="text-light text-center">{strikes.length} results displayed</p>
             <div>
             {!isFirst && (
                 <div className="float-left">
                     <Link to={prevPage} rel="prev" style={{textDecoration: `none`}}>
-                        <span className="text-warning">← Data For Previous 10 Strikes</span>
+                        <span className="text-warning">← Data For Previous 100 Strikes</span>
                     </Link>
                 </div>
             )}
             {!isLast && (
                 <div className="float-right">
                         <Link to={nextPage} rel="next" style={{ textDecoration: `none` }}>
-                        <span className="text-warning">Data For Next 10 Strikes →</span>
+                        <span className="text-warning">Data For Next 100 Strikes →</span>
                     </Link>
                 </div>
             )}

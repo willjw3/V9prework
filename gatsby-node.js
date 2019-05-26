@@ -42,7 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
 
                 // Create blog-list pages
                 const strikes = result.data.allStrike.edges
-                const strikesPerPage = 10
+                const strikesPerPage = 100
                 const numPages = Math.ceil(strikes.length / strikesPerPage)
                 Array.from({ length: numPages }).forEach((_, i) => {
                     createPage({
