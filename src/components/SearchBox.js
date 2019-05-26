@@ -13,13 +13,11 @@ const SearchBox = (props) => {
         e.preventDefault()
         let searchTerm = inputValue.toLowerCase()
         navigate(
-            "/searches/",
+            "/",
             {
                 state: { searchTerm }
             }
         )
-
-        setInputValue("")
     }
 
 
