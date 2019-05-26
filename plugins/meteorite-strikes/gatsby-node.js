@@ -1,7 +1,7 @@
 const axios = require("axios")
 const crypto = require("crypto")
 
-const API_URI = "https://data.nasa.gov/resource/gh4g-9sfh.json?$limit=1000"
+const API_URI = "https://data.nasa.gov/resource/gh4g-9sfh.json?$limit=45000"
 
 exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions
