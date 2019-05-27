@@ -1,29 +1,40 @@
 import React, { useState } from "react"
 import { navigate } from "gatsby"
 
+import UseLoader from "../components/UseLoader"
+
 
 const SearchBox = (props) => {
+    const [loader, showLoader, hideLoader] = UseLoader()
     const [inputValue, setInputValue] = useState("")
+
+    const isLoading = () => {
+        showLoader()
+        setTimeout(() => hideLoader(), 1000)
+    } 
 
     const handleChange = (e) => {
         setInputValue(e.target.value)
     }
 
     const handleSubmit = (e) => {
+        isLoading()
         e.preventDefault()
         let searchTerm = inputValue.toLowerCase()
-        navigate(
-            "/",
-            {
-                state: { searchTerm }
-            }
-        )
+        setTimeout(() => {
+            navigate(
+                "/",
+                {
+                    state: { searchTerm }
+                }
+            )
+        }, 100)
     }
 
 
-
     return (
-        <div className="search-box text-center form-group mt-2" onSubmit={handleSubmit}>
+        <div className="search-box text-center form-group mt-2">
+            {loader} 
             <label className="d-inline text-warning" htmlFor="nameSearch">Search Names</label>
             <input 
               className="d-inline ml-3 rounded align-middle" 

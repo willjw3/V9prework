@@ -8,33 +8,37 @@ import MobileStrikeCard from "../components/MobileStrikeCard"
 import SearchBox from "../components/SearchBox"
 
 const IndexPage = (props) => {
+  const currentPage = 1
+  const nextPage = (currentPage + 1).toString()
   let strikes
+  let total
   let searchTerm = ""
   let navi = true
-  console.log(props.location)
   if (!props.location.state) {
-    strikes = props.data.allStrike.edges.slice(0, 100)
+    total = props.data.allStrike.edges
+    strikes = total.slice(0, 100)
   }
   if (props.location.state) {
     if (!props.location.state.searchTerm) {
-      strikes = props.data.allStrike.edges.slice(0, 100)
+      total = props.data.allStrike.edges
+      strikes = total.slice(0, 100) 
     } else {
       if (props.location.state.searchTerm === "") {
-        strikes = props.data.allStrike.edges.slice(0, 100)
+        total = props.data.allStrike.edges
+        strikes = total.slice(0, 100)
       } else {
         searchTerm = props.location.state.searchTerm
         navi = false
-        const allStrikes = props.data.allStrike.edges
-        strikes = allStrikes.filter(strike => {
-        let regex = RegExp("^" + searchTerm, "i")
-        return regex.test(strike.node.name)
-    })
+        total = props.data.allStrike.edges
+        strikes = total.filter(strike => {
+          let regex = RegExp(searchTerm, "i")
+          return regex.test(strike.node.name)
+        })
+        console.log(strikes.length)
       }
     }
   }
-  
-  const currentPage = 1
-  const nextPage = (currentPage + 1).toString()
+
 
   return (
     <Layout>
@@ -42,7 +46,8 @@ const IndexPage = (props) => {
         <div className="ml-auto mr-auto w-100">
           <SearchBox />
         </div>
-        <div className="font-weight-bold border-bottom">
+        <p className="text-light">Displaying {strikes.length} results of {total.length}</p>
+        <div className="font-weight-bold border-bottom headings">
           <StrikeCard 
             name="Name" 
             id="ID" 
@@ -69,6 +74,7 @@ const IndexPage = (props) => {
               longitude={strike.node.longitude} />
           })}
         </div>
+        
         <div className="font-italic">
           {strikes.map(strike => {
             return <MobileStrikeCard
@@ -84,7 +90,6 @@ const IndexPage = (props) => {
               longitude={strike.node.longitude} />
           })}
         </div>
-        <p className="text-light text-center">{strikes.length} results displayed</p>
         { navi === false && (
           <Link to="/">
             <input className="btn btn-outline-warning" value="Back To Main" type="submit" />
